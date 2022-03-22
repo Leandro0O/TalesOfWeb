@@ -1,0 +1,41 @@
+{% extends "posts/base.html" %}
+
+
+{% block title %}
+
+Tales of Web
+{% endblock %}
+
+
+{% block content %}
+<div class="container">
+    <div class="row my-4 justify-content-center">
+        <h2 class="my-4"> Artigos</h2>
+        <hr>
+        {% for post in post_list %}
+        <div class="col">
+            <div class="card h-100" style="width: 18rem;">
+                <img src="{{post.img.url}}" class="card-img-top" alt="..." height="200">
+                <div class="card-body text-center">
+                    <h5 class="card-title">{{post.title}}</h5><hr>
+                    <p class="card-text">{{post.body|linebreaks|truncatewords:20}}</p>
+                </div>
+                <div class="row text-center mb-2">
+                    <div class="col">
+                        <a href="{{post.get_absolute_url}}" class="btn btn-primary">Continuar lendo</a>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">Publicado {{post.created}} por {{post.author}}</small>
+                </div>
+              </div>
+
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+{% endblock %}
+
+</div>

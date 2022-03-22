@@ -1,0 +1,40 @@
+{% extends "posts/base.html" %}
+
+
+{% block title %}
+
+Posts
+{% endblock %}
+
+
+{% block content %}
+<div class="container">
+    <div class="row my-4">
+        <h2 class="my-4"> Artigos</h2>
+        <hr>
+        {% for post in post_list %}
+        <div class="col">
+            <div class="card text-center" style="width: 18rem;">
+                <img src="{{post.img.url}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{post.title}}</h5>
+                    <hr>
+                    <small class="text-muted">Publicado em {{post.created}} por {{post.author}}</small>
+                    <hr>
+                    <p class="card-text">{{post.body|linebreaks|truncatewords:10}}</p>
+                    <div class="row mb-2">
+                        <div class="col">
+                            <a href="{{post.get_absolute_url}}" class="btn btn-primary">Continuar lendeo</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+{% endblock %}
