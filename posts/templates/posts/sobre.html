@@ -1,0 +1,31 @@
+{% extends "posts/base.html" %}
+{% load static%}
+
+{% block title %}
+
+Sobre
+
+{% endblock %}
+
+
+{% block content %}
+<article class="container mb-4">
+    <div class="row row-cols-1 row-cols-md-2">
+        <div class="col-5">
+            <img src="{% static 'img/intro/intro.gif' %}" id="intro" alt="" class="img-fluid w-100 img-thumbnail">
+        </div>
+        <div class="col">
+            <h5 class="text-center">Olá o/</h5>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi porro tempore eos quaerat
+                reprehenderit commodi laboriosam assumenda fugit similique, optio quod, officiis ex non atque nostrum
+                iure enim aliquid necessitatibus.
+            </p>
+        </div>
+    </div>
+</article>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,14 @@
+p{
+    text-align: justify;
+}
+
+footer{
+    margin-top: 20rem;
+}
+
+.contatos{
+    position: absolute;
+  bottom: 8px;
+  right: 16px;
+  
+}

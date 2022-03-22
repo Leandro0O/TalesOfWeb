@@ -1,7 +1,7 @@
 {% extends "posts/base.html" %}
 
 
-{%  block title %}
+{% block title %}
 
 {{post.title}}
 
@@ -9,14 +9,27 @@
 
 
 {% block content %}
-
-        <article>
+<article class="container">
+    <div class="row my-3">
+        <div class="col">
             <h2>{{post.title}}</h2>
-            <p class="date">
-                Publicado em {{post.created}}  por  {{post.author}}
+            <p>
+                Publicado em {{post.created}} por {{post.author}}
             </p>
-            <p>{{post.body|linebreaks}}</p>
-        </article>
+            <h5>{{post.description}}</h5>
+        </div>
+    </div>
+    <hr>
+    <div class="row justify-content-center">
+        <div class="col-8">
+            <img src="{{post.img.url}}" alt="" class="img-fluid w-100">
+        </div>
+
+    </div>
+
+    <p>{{post.body|linebreaks}}</p>
+
+</article>
 
 
 

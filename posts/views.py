@@ -30,5 +30,10 @@ def Home(request):
     return render(request, 'posts/index.html', {'post_list': post_list})
 
 
+def Sobre(request):
+
+    return render(request, 'posts/sobre.html')    
+
+
 class ImagensView(DetailView):
     model = Imagens
