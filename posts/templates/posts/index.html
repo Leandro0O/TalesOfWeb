@@ -9,11 +9,12 @@ Tales of Web
 
 {% block content %}
 <div class="container">
+    <h2 class="my-4"> Posts Recentes</h2><hr>
     <div class="row my-4 justify-content-center">
-        <h2 class="my-4"> Artigos</h2>
-        <hr>
+        
+        
         {% for post in post_list %}
-        <div class="col">
+        <div class="col mt-3">
             <div class="card h-100" style="width: 18rem;">
                 <img src="{{post.img.url}}" class="card-img-top" alt="..." height="200">
                 <div class="card-body text-center">

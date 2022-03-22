@@ -25,29 +25,34 @@
             </div>
             <div class="row bg-black">
                 <div class="col">
-                    <nav class="navbar navbar-expand-lg navbar-dark bg-black">
+                    <nav class="navbar navbar-expand-lg navbar-expand-md navbar-dark bg-black ">
                         <div class="container-fluid justify-content-end">
-                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                                aria-expanded="false" aria-label="Toggle navigation">
-                                <span class="navbar-toggler-icon "></span>
-                            </button>
-                            <div class="collapse navbar-collapse justify-content-center " id="navbarSupportedContent">
-                                <ul class="navbar-nav me-auto mb-2 mb-lg-0 float-rigth justify-content-center">
-                                    <li class="nav-item">
-                                        <a class="nav-link active" aria-current="page" href="/">Home</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="todosposts/">Todos os Posts</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="">Sobre</a>
-                                    </li>
-                                </ul>
+                          <button class="navbar-toggler border-0 " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                            <span class="navbar-toggler-icon X"></span>
+                          </button>
+                          <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                            <div class="offcanvas-header bg-black">
+                                <a class="navbar-brand" href="/">
+                                    <img src="{% static 'img/logo/1.png' %}" class="rounded rounded-circle" width="50" height="50">
+                                  </a>
+                              <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                             </div>
-                         
+                            <div class="offcanvas-body bg-black">
+                              <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="/">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="todosposts/">Todos os Posts</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="">Sobre</a>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
                         </div>
-                    </nav>
+                      </nav>
                 </div>
             </div>
            
