@@ -3,39 +3,72 @@
 
 {% block title %}
 
-Todos os Artigos
-
+Todos os Posts
 {% endblock %}
 
 
 {% block content %}
-<div class="container">
-    <div class="row my-4 justify-content-center">
-        <h2 class="my-4"> Artigos</h2>
-        <hr>
-        {% for post in post_list %}
-        <div class="col mt-3">
-            <div class="card h-100" style="width: 18rem;">
-                <img src="{{post.img.url}}" class="card-img-top" alt="..." height="200">
-                <div class="card-body text-center">
-                    <h5 class="card-title">{{post.title}}</h5><hr>
-                    <p class="card-text">{{post.body|linebreaks|truncatewords:20}}</p>
+<section class="container my-3" id="novidades">
+    <div class="row g-3 card-grid">
+        <div class="col-lg-9">
+            <div class="row my-4 mx-1">
+                <div class="col">
+                    <h2 class="my-4 title"> Todos os Posts</h2>
+                    <hr>
                 </div>
-                <div class="row text-center mb-2">
-                    <div class="col">
-                        <a href="{{post.get_absolute_url}}" class="btn btn-primary">Continuar lendo</a>
+            </div>
+            <div class="row row-cols-1 row-cols-md-2 my-4 g-4 ">
+
+                {% for post in post_list %}
+                <div class="col col-lg-5 col-md-5 mb-3 flutuar">
+                    <div class="card h-100">
+                        <img src="{{post.img.url}}" class="card-img-top" alt="..." height="200">
+                        <div class="card-body">
+                            <h5 class="card-title">{{post.title}}</h5>
+                            <hr>
+                            <p class="card-text">{{post.body|linebreaks|truncatewords:20}}</p>
+                        </div>
+                        <div class="row text-center mb-2">
+                            <div class="col">
+                                <a href="{{post.get_absolute_url}}" class="btn btnroxo flutuar w-75">Continuar lendo</a>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <small class="text-muted">Publicado {{post.created}} por {{post.author}}</small>
+                        </div>
                     </div>
                 </div>
-                <div class="card-footer">
-                    <small class="text-muted">Publicado {{post.created}} por {{post.author}}</small>
-                </div>
-              </div>
-
+                {% endfor %}
+            </div>
         </div>
-        {% endfor %}
-    </div>
-</div>
+        <div class="col-lg-3">
 
+            <div class="row py-5">
+                <div class="col-12 mb-2 ">
+                    <h4 class="text-center title">Categorias</h4>
+                </div>
+                <div class="d-grid gap-2">
+                    <a href="/todosposts/" class="btn categorias flutuar shadow btnroxo mb-1 " type="button">Todos os
+                        Posts</a>
+                    <a href="/webdesign/" class="btn categorias flutuar shadow btnroxo mb-1" type="button">Web
+                        Design</a>
+                    <a href="/webdeveloper/" class="btn categorias flutuar shadow btnroxo mb-1" type="button">Web
+                        Development</a>
+                    <a href="/linguagens/" class="btn categorias flutuar shadow  btnroxo mb-1" type="button">Linguagens
+                        de Programação</a>
+
+                </div>
+            </div>
+        </div>
+        <div class="row my-3">
+            <div class="col">
+                <h2 class="title">Venha interagir com a gente !</h2>
+                <hr>
+                <div class="fb-comments" data-href="http://talesofweb.pythonanywhere.com/" data-width="100%"
+                    data-numposts="5"></div>
+            </div>
+        </div>
+</section>
 
 {% endblock %}
 

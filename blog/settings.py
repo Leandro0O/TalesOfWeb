@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os
+import smtplib
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,6 +28,9 @@ SECRET_KEY = 'django-insecure-0gtgefu^=ttl+a*rdyb!k+o!c(hdytf&+w%zh!zat%hu*7u!m!
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
+ADMINS = (
+    ('Tales of Web', 'talesofweb@gmail.com'),
+)
 
 
 # Application definition
@@ -39,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'posts.apps.PostsConfig',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -127,3 +132,14 @@ MEDIA_ROOT = BASE_DIR / "media"
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+#DEFAULT_FROM_EMAIL = 'talesofweb@gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'talesofweb@gmail.com'
+EMAIL_HOST_PASSWORD = 'lobomadotate314159'
+EMAIL_PORT = 587
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

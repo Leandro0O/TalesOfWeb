@@ -1,8 +1,10 @@
-from django.views.generic import DetailView, ListView
+from django.contrib import messages
+from django.views.generic import DetailView, ListView,CreateView
 from django.core.paginator import Paginator
 from django.shortcuts import render, get_object_or_404, redirect
 
 from .models import *
+from .forms import *
 
 
 class PostDetailView(DetailView):
@@ -29,6 +31,29 @@ def Home(request):
 
     return render(request, 'posts/index.html', {'post_list': post_list})
 
+def WebDesign(request):
+    
+    post_list = Post.objects.filter(categoria = 'Web Design')
+
+    paginator = Paginator(post_list, 4)
+
+    return render(request, 'posts/index.html', {'post_list': post_list})
+
+def ProgramadorWeb(request):
+    
+    post_list = Post.objects.filter(categoria = 'Web Development')
+
+    paginator = Paginator(post_list, 4)
+
+    return render(request, 'posts/index.html', {'post_list': post_list})
+
+def Linguagens(request):
+    
+    post_list = Post.objects.filter(categoria = 'Linguagens de Programação')
+
+    paginator = Paginator(post_list, 4)
+
+    return render(request, 'posts/index.html', {'post_list': post_list})
 
 def Sobre(request):
 
@@ -37,3 +62,19 @@ def Sobre(request):
 
 class ImagensView(DetailView):
     model = Imagens
+
+
+
+
+
+def Email(request):
+    if request.method == 'POST':
+        form = ContatoForm(request.POST)
+        form.save()
+        if form.is_valid():
+            
+            messages.success(request, 'Mensagem enviada com sucesso!')
+            return redirect('/contato/')
+    else:    
+        form = ContatoForm()
+        return render(request, 'posts/contato.html', {'form':form})
