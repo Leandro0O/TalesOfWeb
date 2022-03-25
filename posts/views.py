@@ -12,6 +12,7 @@ class PostDetailView(DetailView):
     model = Post
 
 
+
 def PostList(request):
     post_list = Post.objects.all()
     paginator = Paginator(post_list, 4)
@@ -82,3 +83,4 @@ def Email(request):
         return render(request, 'posts/contato.html', {'form': form})
 
 
+            

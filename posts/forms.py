@@ -7,7 +7,7 @@ class ContatoForm(forms.ModelForm):
 		model = Contato
 		exclude = ('id', 'data', 'email_sent')
 
-class CommentsForm(forms.ModelForm):
+class CommentForm(forms.ModelForm):
 	class Meta:
 		model = CommentPost
 		fields = ['nome', 'comentario']
