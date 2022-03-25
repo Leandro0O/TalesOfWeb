@@ -1,6 +1,7 @@
 from contextlib import nullcontext
 from distutils.command.upload import upload
 from pyexpat import model
+from random import choices
 import smtplib
 from venv import create
 from django.db import models
@@ -106,3 +107,21 @@ def send_confirmation_email(sender, instance, created, **wkargs):
 
 models.signals.post_save.connect(
 	send_confirmation_email, sender=Contato, dispatch_uid='contato.Record')
+
+
+
+class CommentPost(models.Model):
+	STATUS = (
+		('Lido', 'Lido'),
+		('Não lido', 'Não Lido'),
+
+	)
+
+	post = models.ForeignKey(Post, on_delete=models.CASCADE)
+	nome = models.CharField(max_length=255, blank=False)
+	comentario = models.TextField(max_length=255,blank=False)
+	status = models.CharField(max_length=20, choices=STATUS, default='Não Lido')
+	criado = models.DateTimeField(auto_now_add=True)
+
+	def __str__(self):
+		return self.nome 

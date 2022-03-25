@@ -6,3 +6,9 @@ class ContatoForm(forms.ModelForm):
 	class Meta:
 		model = Contato
 		exclude = ('id', 'data', 'email_sent')
+
+class CommentsForm(forms.ModelForm):
+	class Meta:
+		model = CommentPost
+		fields = ['nome', 'comentario']
+
