@@ -16,7 +16,7 @@
             <p>
                 Publicado em {{post.created}} por {{post.author}}
             </p>
-            <h5>{{post.description}}</h5>
+            {{post.description|safe}}
         </div>
     </div>
     <hr>
@@ -27,7 +27,7 @@
 
     </div>
 
-    <p>{{post.body|linebreaks}}</p>
+    {{post.body|safe}}
 </article>
 
 {% endblock %}

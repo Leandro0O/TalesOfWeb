@@ -13,6 +13,8 @@ from django.utils.html import format_html
 from smtplib import SMTPAuthenticationError
 from django.core.mail import send_mail
 from django.conf import settings
+from ckeditor.fields import RichTextField
+from ckeditor_uploader.fields import RichTextUploadingField
 
 import sys
 
@@ -28,8 +30,8 @@ class Post(models.Model):
     title = models.CharField(max_length=255)
     slug = models.SlugField(max_length=255, unique=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    description = models.CharField(max_length=255, null=True, blank=True)
-    body = models.TextField()
+    description = RichTextField()
+    body = RichTextUploadingField()
     categoria = models.CharField(max_length=45, choices=CATEGORIA, null=False)
     img = models.ImageField(upload_to='posts', null=True, blank=True)
     created = models.DateTimeField(auto_now_add=True)

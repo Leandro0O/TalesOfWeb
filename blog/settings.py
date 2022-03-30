@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'posts.apps.PostsConfig',
     'crispy_forms',
+    'ckeditor',
+    'ckeditor_uploader',
 ]
 
 MIDDLEWARE = [
@@ -143,3 +145,5 @@ EMAIL_HOST_PASSWORD = 'lobomadotate314159'
 EMAIL_PORT = 587
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+CKEDITOR_UPLOAD_PATH = 'uploads/'
