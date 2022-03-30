@@ -35,7 +35,7 @@ Tales of Web
                             </div>
                         </div>
                         <div class="card-footer">
-                            <small class="text-muted">Publicado {{post.created}} por {{post.author}}</small>
+                            <small class="text-muted">Publicado {{post.created|date:'d M Y'}} por {{post.author.get_full_name}}</small>
                         </div>
                     </div>
                 </div>
