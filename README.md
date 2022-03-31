@@ -12,7 +12,7 @@
  
  <h3>Desenvolvimento</h3>
 
-<p>Foram utilizados para o desenvolvimento do sistema:
+<p>Foram utilizados para o desenvolvimento:
 
  <ul>
   <li>Python</li>
