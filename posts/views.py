@@ -17,6 +17,9 @@ def PostList(request):
     post_list = Post.objects.all()
     paginator = Paginator(post_list, 4)
 
+    page = request.GET.get('page')
+    post_list = paginator.get_page(page)
+
     return render(request, 'posts/post_list.html', {'post_list': post_list})
 
 
@@ -30,6 +33,9 @@ def Home(request):
         post_list = Post.objects.all()
 
         paginator = Paginator(post_list, 4)
+
+        page = request.GET.get('page')
+        post_list = paginator.get_page(page)
 
     return render(request, 'posts/index.html', {'post_list': post_list})
 
