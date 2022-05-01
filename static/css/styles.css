@@ -73,3 +73,23 @@ ul.messages li{
     color: white;
   }
 
+
+#pesquisa{
+    visibility: hidden;
+}
+
+#pesquisa2{
+    visibility: visible;
+}
+
+@media only screen and (max-width: 460px){
+    #pesquisa {
+        visibility: visible;
+    }
+}
+
+@media only screen and (max-width: 450px){
+    #pesquisa2{
+        visibility: hidden;
+    }
+}

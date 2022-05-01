@@ -29,7 +29,6 @@ def Home(request):
         post_list = Post.objects.filter(title__icontains=busca)
 
     else:
-
         post_list = Post.objects.all()
 
         paginator = Paginator(post_list, 4)

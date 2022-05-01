@@ -17,10 +17,10 @@ Tales of Web
                     <hr>
                 </div>
             </div>
-            <div class="row row-cols-1 row-cols-md-2 my-4 g-4 ">
-
+            <div class="row row-cols-1 row-cols-md-1  my-4 g-4 ">
+                
                 {% for post in post_list %}
-                <div class="col col-lg-5 col-md-5 mb-3 flutuar">
+                <div class="col col-lg-5 col-md-5mb-3 flutuar">
                     <div class="card h-100">
                         <img src="{{post.img.url}}" class="card-img-top" alt="..." height="200">
                         <div class="card-body">
@@ -38,12 +38,24 @@ Tales of Web
                             <small class="text-muted">Publicado {{post.created|date:'d M Y'}} por {{post.author.get_full_name}}</small>
                         </div>
                     </div>
-                </div>
+                </div> 
                 {% endfor %}
             </div>
         </div>
         <div class="col-lg-3">
-
+            <div class="row justify-content-center" id="pesquisa2">
+                <div class="col">
+                    <form class="d-flex ">
+                        <input class="form-control  me-2" type="search" name="busca" placeholder="Encontre um Post"
+                            aria-label="Search">
+                        <button class="btn  " type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                height="16" fill="black" class="bi bi-search" viewBox="0 0 16 16">
+                                <path
+                                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                            </svg></button>
+                    </form>
+                </div>
+            </div>
             <div class="row py-5">
                 <div class="col-12  ">
                     <h4 class="text-center title">Categorias</h4>
