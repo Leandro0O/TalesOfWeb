@@ -20,24 +20,21 @@ Todos os Posts
             <div class="row row-cols-1 row-cols-md-2 my-4 g-4 ">
 
                 {% for post in post_list %}
-                <div class="col col-lg-5 col-md-5 mb-3 flutuar">
-                    <div class="card h-100">
-                        <img src="{{post.img.url}}" class="card-img-top" alt="..." height="200">
-                        <div class="card-body">
-                            <h5 class="card-title">{{post.title}}</h5>
-                            <hr>
-                            <p class="card-text">{{post.body|safe|linebreaks|truncatewords:20}}</p>
-                        </div>
-                        <div class="row text-center mb-2">
-                            <div class="col">
-                                <a href="{{post.get_absolute_url}}" class="btn btnroxo flutuar w-75">Continuar lendo</a>
+                <div class="col col-lg-5 col-md-5mb-3 flutuar">
+                    <a href="{{post.get_absolute_url}}" class="text-decoration-none text-black">
+                        <div class="card h-100">
+                            <img src="{{post.img.url}}" class="card-img-top" alt="..." height="200">
+                            <div class="card-body">
+                                <h5 class="card-title">{{post.title}}</h5>
+                                <hr>
+                                <p class="card-text">{{post.body|safe|linebreaks|truncatewords:20}}</p>
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-muted">Publicado {{post.created|date:'d M Y'}} por {{post.author.get_full_name}}</small>
                             </div>
                         </div>
-                        <div class="card-footer">
-                            <small class="text-muted">Publicado {{post.created|date:'d M Y'}} por {{post.author.get_full_name}}</small>
-                        </div>
-                    </div>
-                </div>
+                    </a>
+                </div> 
                 {% endfor %}
             </div>
             <div class="row justify-content-center">
@@ -66,13 +63,26 @@ Todos os Posts
             </div>
         </div>
         <div class="col-lg-3">
+            <div class="row justify-content-center" id="pesquisa2">
+                <div class="col">
+                    <form class="d-flex ">
+                        <input class="form-control  me-2" type="search" name="busca" placeholder="Encontre um Post"
+                            aria-label="Search">
+                        <button class="btn  " type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                height="16" fill="black" class="bi bi-search" viewBox="0 0 16 16">
+                                <path
+                                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                            </svg></button>
+                    </form>
+                </div>
+            </div>
 
             <div class="row py-5">
-                <div class="col-12 mb-2 ">
+                <div class="col-12  ">
                     <h4 class="text-center title">Categorias</h4>
                 </div>
                 <div class="d-grid gap-2">
-                    <a href="/todosposts/" class="btn categorias flutuar shadow btnroxo mb-1 " type="button">Todos os
+                    <a href="/todosposts/" class="btn btnroxo categorias flutuar shadow  mb-1 " type="button">Todos os
                         Posts</a>
                     <a href="/webdesign/" class="btn categorias flutuar shadow btnroxo mb-1" type="button">Web
                         Design</a>
@@ -82,6 +92,17 @@ Todos os Posts
                         de Programação</a>
 
                 </div>
+            </div>
+            <div class="row py-5">
+                <div class="col-12 mb-2 ">
+                    <h4 class="text-center title">Posts Recentes</h4>
+                </div>
+                {% for post in post_list %}
+                <div class="d-grid gap-2">
+                    <a href="{{post.get_absolute_url}}" class="btn btnroxo categorias flutuar shadow  mb-1 "
+                        type="button">{{post.title}}</a>
+                </div>
+                {% endfor %}
             </div>
         </div>
        

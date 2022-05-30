@@ -8,7 +8,6 @@ from django.db import models
 from django.forms import SlugField
 from django.contrib.auth.models import User
 from django.urls import reverse
-from django.urls import reverse
 from django.utils.html import format_html
 from smtplib import SMTPAuthenticationError
 from django.core.mail import send_mail
