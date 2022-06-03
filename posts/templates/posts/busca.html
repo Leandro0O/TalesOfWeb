@@ -3,7 +3,7 @@
 
 {% block title %}
 
-Tales of Web
+Todos os Posts
 {% endblock %}
 
 
@@ -13,11 +13,12 @@ Tales of Web
         <div class="col-lg-9">
             <div class="row my-4 mx-1">
                 <div class="col">
-                    <h2 class="my-4 title"> Novidades</h2>
+                    <h2 class="my-4 title"> Todos os Posts</h2>
                     <hr>
                 </div>
             </div>
-            <div class="row   my-4 g-4 ">
+            <div class="row  my-4 g-4 ">
+
                 {% for post in post_list %}
                 <div class="col col-12 col-lg-4 col-md-4 col-sm-6 flutuar">
                     <a href="{{post.get_absolute_url}}" class="text-decoration-none text-black">
@@ -35,7 +36,30 @@ Tales of Web
                     </a>
                 </div> 
                 {% endfor %}
-                
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-3">
+                    <span>
+                        {% if post_list.has_previous %}
+                        <a href="?page={{ post_list.previous_page_number}}"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#2e022e" class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
+                            <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
+                          </svg></a>
+                    </span>
+                    {% endif %}
+                </div>
+                <div class="col-3">
+                    <span>
+                        {{ post_list.number}} de {{ post_list.paginator.num_pages}}
+                    </span>
+                </div>
+                <div class="col-3">                  
+
+                    {% if post_list.has_next %}
+                    <a href="?page={{ post_list.next_page_number}}"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#2e022e" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
+                        <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+                      </svg></a>
+                    {% endif %}
+                </div>
             </div>
         </div>
         <div class="col-lg-3">
@@ -52,6 +76,7 @@ Tales of Web
                     </form>
                 </div>
             </div>
+
             <div class="row py-5">
                 <div class="col-12  ">
                     <h4 class="text-center title">Categorias</h4>
@@ -80,16 +105,15 @@ Tales of Web
                 {% endfor %}
             </div>
         </div>
-
-    </div>
-    <div class="row my-3">
-        <div class="col">
-            <h2 class="title">Venha interagir com a gente !</h2>
-            <hr>
-            <div class="fb-comments" data-href="http://talesofweb.pythonanywhere.com/" data-width="100%"
-                data-numposts="5"></div>
+       
+        <div class="row my-3">
+            <div class="col">
+                <h2 class="title">Venha interagir com a gente !</h2>
+                <hr>
+                <div class="fb-comments" data-href="http://talesofweb.pythonanywhere.com/" data-width="100%"
+                    data-numposts="5"></div>
+            </div>
         </div>
-    </div>
 </section>
 
 {% endblock %}

@@ -14,24 +14,29 @@ class PostDetailView(DetailView):
 
 
 def PostList(request):
-    post_list = Post.objects.all()
-    paginator = Paginator(post_list, 4)
+  busca = request.GET.get('busca')
+  if busca:
+        post_list = Post.objects.filter(title__icontains=busca)
 
-    page = request.GET.get('page')
-    post_list = paginator.get_page(page)
+  else:
+        post_list = Post.objects.all()
 
-    return render(request, 'posts/post_list.html', {'post_list': post_list})
+        paginator = Paginator(post_list, 4)
+
+        page = request.GET.get('page')
+        post_list = paginator.get_page(page)
+  return render(request, 'posts/post_list.html', {'post_list': post_list})
 
 
 def Home(request):
     busca = request.GET.get('busca')
     if busca:
         post_list = Post.objects.filter(title__icontains=busca)
-
+            
     else:
         post_list = Post.objects.all()
 
-        paginator = Paginator(post_list, 4)
+        paginator = Paginator(post_list, 3)
 
         page = request.GET.get('page')
         post_list = paginator.get_page(page)
