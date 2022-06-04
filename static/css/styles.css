@@ -11,9 +11,6 @@ p{
     font-family: 'Anton', sans-serif;
 }
 
-footer{
-    margin-top: 15rem;
-}
 
 .contatos{
     position: absolute;
@@ -74,6 +71,17 @@ ul.messages li{
   }
 
 
+.card{
+    border-radius: 30px;
+}
+
+.card-img-top{
+    border-radius: 30px 30px 0px 0;
+}
+footer{
+    margin-top: 10rem;
+}
+
 #pesquisa{
     visibility: hidden;
 }
@@ -91,5 +99,17 @@ ul.messages li{
 @media only screen and (max-width: 450px){
     #pesquisa2{
         visibility: hidden;
+    }
+}
+
+@media (max-width:631px){
+    #banner{
+        display: none;
+    }
+}
+
+@media (min-width:631px){
+    #logo{
+        display: none;
     }
 }

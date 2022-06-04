@@ -21,7 +21,7 @@ Tales of Web
                 {% for post in post_list %}
                 <div class="col col-12 col-lg-4 col-md-4 col-sm-6 flutuar">
                     <a href="{{post.get_absolute_url}}" class="text-decoration-none text-black">
-                        <div class="card h-100">
+                        <div class="card h-100 shadow">
                             <img src="{{post.img.url}}" class="card-img-top" alt="..." height="200">
                             <div class="card-body">
                                 <h5 class="card-title">{{post.title}}</h5>

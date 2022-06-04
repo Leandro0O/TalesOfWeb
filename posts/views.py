@@ -12,7 +12,6 @@ class PostDetailView(DetailView):
     model = Post
 
 
-
 def PostList(request):
   busca = request.GET.get('busca')
   if busca:
