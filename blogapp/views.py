@@ -12,6 +12,7 @@ from .forms import *
 
 
 class PostDetailView(DetailView):
+    template_name = 'posts/post_detail.html'
     model = Post
 
 

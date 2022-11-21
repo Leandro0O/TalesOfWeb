@@ -2,7 +2,7 @@ from django.urls import path
 
 from . import views
 
-app_name = "blog"
+app_name = "post"
 
 urlpatterns = [
     path('linguagens/', views.Linguagens,name='linguagens'),

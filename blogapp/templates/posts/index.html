@@ -18,25 +18,27 @@ Tales of Web
                 </div>
             </div>
             <div class="row   my-4 g-4 ">
-                {% for post in post_list %}
-                <div class="col col-12 col-lg-4 col-md-4 col-sm-6 flutuar">
+            
+                <div class="row row-cols-1 row-cols-lg-3 row-cols-md-2  g-4">
+                    {% for post in post_list %}
                     <a href="{{post.get_absolute_url}}" class="text-decoration-none text-black">
-                        <div class="card h-100 shadow">
-                            <img src="{{post.img.url}}" class="card-img-top" alt="..." height="200">
-                            <div class="card-body">
+                        <div class="col">
+                            <div class="box">
+                                <img src="{{post.img.url}}"  alt="" >
                                 <h5 class="card-title">{{post.title}}</h5>
-                                <hr>
-                                <p class="card-text">{{post.body|safe|linebreaks|truncatewords:20}}</p>
+                                <p class="card-text">{{post.body|safe|linebreaks|truncatewords:10}}</p>
+                                <div class="card-footer">
+                                    <small class="text-muted">Publicado {{post.created|date:'d M Y'}} por {{post.author.get_full_name}}</small>
+                                </div>
                             </div>
-                            <div class="card-footer">
-                                <small class="text-muted">Publicado {{post.created|date:'d M Y'}} por {{post.author.get_full_name}}</small>
-                            </div>
+                           
                         </div>
                     </a>
-                </div> 
-                {% endfor %}
-                
+            
+                    {% endfor %}
+                </div>
             </div>
+            
         </div>
         <div class="col-lg-3">
             <div class="row justify-content-center" id="pesquisa2">
