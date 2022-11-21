@@ -23,15 +23,12 @@ Todos os Posts
                     {% for post in post_list %}
                     <a href="{{post.get_absolute_url}}" class="text-decoration-none text-black">
                         <div class="col">
-                            <div class="box">
-                                <img src="{{post.img.url}}"  alt="" >
-                                <h5 class="card-title">{{post.title}}</h5>
-                                <p class="card-text">{{post.body|safe|linebreaks|truncatewords:10}}</p>
-                                <div class="card-footer">
-                                    <small class="text-muted">Publicado {{post.created|date:'d M Y'}} por {{post.author.get_full_name}}</small>
+                            <div class="card h-100">
+                                <div class="box ">
+                                    <img src="{{post.img.url}}"  alt="" >
+                                    <p class="card-text">{{post.body|safe|linebreaks|truncatewords:10}}</p>
                                 </div>
-                            </div>
-                           
+                            </div> 
                         </div>
                     </a>
             
